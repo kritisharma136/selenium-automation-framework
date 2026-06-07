@@ -42,3 +42,8 @@ mvn test -P smoke -Dbrowser=chrome-headless
 
 S3 uploads are silently skipped if `s3.bucket.name` is empty in `config.properties`.
 Set it only when running on EC2 with the correct IAM role attached.
+
+
+
+<img width="953" height="436" alt="image" src="https://github.com/user-attachments/assets/d0ec655f-1e93-4866-bcb4-7a0c88e0a844" />
+
