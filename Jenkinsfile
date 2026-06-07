@@ -1,28 +1,24 @@
 pipeline {
-agent any
+    agent any
 
-```
-stages {
+    stages {
 
-    stage('Build') {
-        steps {
-            bat 'mvn clean compile'
+        stage('Build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+
+        stage('Smoke Tests') {
+            steps {
+                bat 'mvn test -P smoke'
+            }
         }
     }
 
-    stage('Smoke Tests') {
-        steps {
-            bat 'mvn test -P smoke'
+    post {
+        always {
+            echo 'Pipeline completed'
         }
     }
-
-}
-
-post {
-    always {
-        echo 'Pipeline completed'
-    }
-}
-```
-
 }
