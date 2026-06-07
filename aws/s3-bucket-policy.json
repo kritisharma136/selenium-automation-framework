@@ -1,0 +1,22 @@
+{
+  "_comment": "S3 bucket policy — grants Jenkins EC2 IAM role write access to the report bucket",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowJenkinsEC2Upload",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::ACCOUNT_ID:role/Jenkins-EC2-Role"
+      },
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::your-test-reports-bucket",
+        "arn:aws:s3:::your-test-reports-bucket/*"
+      ]
+    }
+  ]
+}

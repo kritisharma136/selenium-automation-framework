@@ -1,0 +1,26 @@
+{
+  "_comment": "CloudWatch agent config — deployed on EC2 Jenkins instance",
+  "_purpose": "Streams test-execution.log to CloudWatch so team can monitor failures without SSH-ing into EC2",
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/home/jenkins/selenium-automation-framework/logs/test-execution.log",
+            "log_group_name": "/selenium/test-runs",
+            "log_stream_name": "{instance_id}/test-execution",
+            "timestamp_format": "%Y-%m-%d %H:%M:%S",
+            "retention_in_days": 30
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "namespace": "SeleniumTests",
+    "metrics_collected": {
+      "cpu": { "measurement": ["cpu_usage_idle"], "metrics_collection_interval": 60 },
+      "mem": { "measurement": ["mem_used_percent"], "metrics_collection_interval": 60 }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  testng-regression.xml — full regression suite
+  Triggered by Jenkins NIGHTLY build
+  Parallel execution: thread-count="2" runs 2 tests simultaneously
+-->
+<suite name="Regression Suite" verbose="1" parallel="tests" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.project.listeners.TestListener"/>
+    </listeners>
+
+    <test name="Login Smoke Tests">
+        <classes>
+            <class name="com.project.smoke.LoginSmokeTest"/>
+        </classes>
+    </test>
+
+    <test name="Login Regression Tests">
+        <classes>
+            <class name="com.project.regression.LoginRegressionTest"/>
+        </classes>
+    </test>
+
+    <test name="API Tests">
+        <classes>
+            <class name="com.project.api.UserApiTest"/>
+        </classes>
+    </test>
+
+</suite>

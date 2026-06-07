@@ -1,0 +1,22 @@
+# Maven
+target/
+*.class
+
+# Reports (generated, not committed — stored in S3)
+reports/extent-reports/
+reports/screenshots/
+reports/testng-output/
+logs/
+
+# IDE files
+.idea/
+*.iml
+.eclipse/
+.classpath
+.project
+.settings/
+
+# Credentials — NEVER commit these
+aws.properties
+*credentials*
+*.pem
